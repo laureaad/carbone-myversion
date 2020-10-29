@@ -61,7 +61,17 @@ describe('Carbone', function () {
       done();
     });
   });
-
+		describe('queroCamisa', () =>{
+			if('should give me camisa', (done)=> {
+				var camisa = false;
+				var prs = 4;
+				if(prs == 4){
+					camisa = true
+				}
+				helper.assert(camisa, true);
+				done();
+			});
+		})
 
   describe('addTemplate', function () {
     var _templatePath = path.join(__dirname,'template');
@@ -99,7 +109,7 @@ describe('Carbone', function () {
     });
   });
 
-  
+
   describe('addFormatters', function () {
     it('should add a formatter to the list of custom formatters', function () {
       carbone.addFormatters({
@@ -524,7 +534,7 @@ describe('Carbone', function () {
         carbone.renderXML('<xml>{d.value:convCurr()}</xml>', data, options, function (err, result) {
           helper.assert(err+'', 'null');
           helper.assert(result, '<xml>2</xml>');
-          options.currencyTarget = ''; // same thing with an empty string 
+          options.currencyTarget = ''; // same thing with an empty string
           carbone.renderXML('<xml>{d.value:convCurr()}</xml>', data, options, function (err, result) {
             helper.assert(err+'', 'null');
             helper.assert(result, '<xml>2</xml>');
@@ -688,7 +698,7 @@ describe('Carbone', function () {
           assert.equal((_buf.slice(0, 2).toString() === 'PK'), true);
         }
         assert.equal((_elapsed < 200), true);
-        done(); 
+        done();
       }
     });
     it('should render a template (doc XML 2003) and give result with replacements', function (done) {
@@ -986,7 +996,7 @@ describe('Carbone', function () {
             assert.equal(_buf.slice(0, 4).toString(), '%PDF');
           }
           // assert.equal((_elapsed < 200), true);
-          done(); 
+          done();
         }
       });
     });
