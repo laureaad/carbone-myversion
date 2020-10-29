@@ -62,12 +62,7 @@ function arrayMap (d, objSeparator, attributeSeparator) {
   if (d instanceof Array) {
     for (var i = 0; i < d.length; i++) {
       var _obj = d[i];
-      var _flatObj = [];
-      // if user want to print only some attributes, avoid looping on whole object
-      if (_isAttributeFilterActive === true) {
-        for (var j = 3; j < arguments.length; j++) {
-          var _att = arguments[j];
-          _flatObj.push(_obj[_att]);
+      var _flatObj = [];  
         }
       }
       else if (_obj instanceof Object === false) {
